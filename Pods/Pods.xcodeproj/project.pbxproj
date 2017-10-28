@@ -25,14 +25,14 @@
 		0B232E82309A59DB62197925F29DFF1A /* Pods-StudyBuddyUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-StudyBuddyUITests-frameworks.sh"; sourceTree = "<group>"; };
 		0D448DA8F9DE17D32241BAF6F748370E /* Pods-StudyBuddy-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-StudyBuddy-resources.sh"; sourceTree = "<group>"; };
 		0FF6394E95FE4558FF381A77A22E283B /* Pods-StudyBuddy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StudyBuddy.release.xcconfig"; sourceTree = "<group>"; };
-		23F7DC5DA9BA0153B4FF75B574422CFE /* Pods-StudyBuddyTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-StudyBuddyTests.modulemap"; sourceTree = "<group>"; };
+		23F7DC5DA9BA0153B4FF75B574422CFE /* Pods-StudyBuddyTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-StudyBuddyTests.modulemap"; sourceTree = "<group>"; };
 		24DBC2C6810963A3F7FB45A64688870F /* Pods-StudyBuddyTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-StudyBuddyTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		3813F7712461E3120940B3278219508B /* Pods-StudyBuddyUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-StudyBuddyUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		38200EA8CAAAD7D480DFB67D3B356EBB /* Pods-StudyBuddyTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-StudyBuddyTests-resources.sh"; sourceTree = "<group>"; };
 		463ABB2ED9240A139F052FD555801C62 /* Pods-StudyBuddyUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-StudyBuddyUITests-dummy.m"; sourceTree = "<group>"; };
-		4D65903433A08D6E09B46D4221F8BCA7 /* Pods_StudyBuddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_StudyBuddy.framework; path = "Pods-StudyBuddy.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D65903433A08D6E09B46D4221F8BCA7 /* Pods_StudyBuddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyBuddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A52F35D6ABCD261DE4ED43A737DCC1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5C06B87AB38A0ECDB55C14E2FB1622AB /* Pods_StudyBuddyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_StudyBuddyTests.framework; path = "Pods-StudyBuddyTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C06B87AB38A0ECDB55C14E2FB1622AB /* Pods_StudyBuddyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyBuddyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E02AE1C26C30BDDABCF68E8E8ADC614 /* Pods-StudyBuddy-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-StudyBuddy-acknowledgements.plist"; sourceTree = "<group>"; };
 		5F73D87FF89F18631CAC0D792C89FFB7 /* Pods-StudyBuddyTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-StudyBuddyTests-frameworks.sh"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -43,16 +43,16 @@
 		83EAF3082436ABC005711AC8BE5DA41D /* Pods-StudyBuddyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StudyBuddyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		86B1FDC6AE7BE2CF8D0DDBBE6E0EC9E8 /* Pods-StudyBuddyUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-StudyBuddyUITests-umbrella.h"; sourceTree = "<group>"; };
 		9241BD0D873241F6F40A5213D7C3BA6D /* Pods-StudyBuddyUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-StudyBuddyUITests-acknowledgements.plist"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9A95393ACF7557B4A35EE0590C9C43D9 /* Pods-StudyBuddy-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-StudyBuddy-umbrella.h"; sourceTree = "<group>"; };
 		AD961B5C47EEEA54E95E0FE6D741A2EF /* Pods-StudyBuddyTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-StudyBuddyTests-dummy.m"; sourceTree = "<group>"; };
-		B0F5B762126D4A80CC7B77FD88990DA8 /* Pods-StudyBuddyUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-StudyBuddyUITests.modulemap"; sourceTree = "<group>"; };
+		B0F5B762126D4A80CC7B77FD88990DA8 /* Pods-StudyBuddyUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-StudyBuddyUITests.modulemap"; sourceTree = "<group>"; };
 		BF8FE312C2E157AE53BD88312BDB2EC5 /* Pods-StudyBuddyTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-StudyBuddyTests-umbrella.h"; sourceTree = "<group>"; };
 		CDA9BC625F1E30A9EDD86282DE61C5B0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D55E0207ECB53CD4CA5EE32CD39594CA /* Pods-StudyBuddy-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-StudyBuddy-dummy.m"; sourceTree = "<group>"; };
-		F18B470247BC1684981CBE1561D14D0D /* Pods_StudyBuddyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_StudyBuddyUITests.framework; path = "Pods-StudyBuddyUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F18B470247BC1684981CBE1561D14D0D /* Pods_StudyBuddyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyBuddyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F725C28140C943C24D6445A476058040 /* Pods-StudyBuddyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StudyBuddyTests.debug.xcconfig"; sourceTree = "<group>"; };
-		FC851B934083E60D88D97AF8944744D2 /* Pods-StudyBuddy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-StudyBuddy.modulemap"; sourceTree = "<group>"; };
+		FC851B934083E60D88D97AF8944744D2 /* Pods-StudyBuddy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-StudyBuddy.modulemap"; sourceTree = "<group>"; };
 		FDEB871AB543049E2AC0C05D7D08CA45 /* Pods-StudyBuddy-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-StudyBuddy-acknowledgements.markdown"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -273,6 +273,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					32F19CF12D247EDB9517BDAD0D9D763C = {
+						LastSwiftMigration = 0830;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -445,6 +450,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 676702AB349654CE78887691BF8280AA /* Pods-StudyBuddy.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -467,6 +473,8 @@
 				PRODUCT_NAME = Pods_StudyBuddy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -602,6 +610,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0FF6394E95FE4558FF381A77A22E283B /* Pods-StudyBuddy.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -624,6 +633,7 @@
 				PRODUCT_NAME = Pods_StudyBuddy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
