@@ -151,8 +151,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Logout"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Autologin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knS-tA-2jQ">
-                                <rect key="frame" x="100" y="184" width="73" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Blacklist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knS-tA-2jQ">
+                                <rect key="frame" x="100" y="184" width="64" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -190,10 +190,10 @@
             </objects>
             <point key="canvasLocation" x="1639" y="-267"/>
         </scene>
-        <!--View Controller-->
+        <!--Register View Controller-->
         <scene sceneID="FfX-8V-UbG">
             <objects>
-                <viewController id="mB0-eB-TeS" sceneMemberID="viewController">
+                <viewController id="mB0-eB-TeS" customClass="RegisterViewController" customModule="StudyBuddy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="us3-hC-D4Q"/>
                         <viewControllerLayoutGuide type="bottom" id="HGT-Hz-CgF"/>
@@ -214,6 +214,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Create Profile"/>
                                 <connections>
+                                    <action selector="registerButton:" destination="mB0-eB-TeS" eventType="touchUpInside" id="U8p-fd-2sc"/>
                                     <segue destination="gjC-xK-fAg" kind="show" id="Kxn-6e-7JQ"/>
                                 </connections>
                             </button>
@@ -276,6 +277,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="aeb-B3-mVD" id="9DA-r4-apd"/>
+                        <outlet property="firstNameField" destination="WSS-Jc-XEx" id="anA-RY-oAE"/>
+                        <outlet property="lastNameField" destination="eS4-g1-WYx" id="776-ar-brC"/>
+                        <outlet property="passwordField" destination="Ru0-Rr-iwH" id="nyi-Cp-COg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mwM-oF-snq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -283,6 +290,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="JFe-m9-4Cd"/>
+        <segue reference="Kxn-6e-7JQ"/>
     </inferredMetricsTieBreakers>
 </document>
