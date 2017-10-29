@@ -6,6 +6,7 @@ target 'StudyBuddy' do
   use_frameworks!
 
   # Pods for StudyBuddy
+  pod 'Firebase/Core'
 
   target 'StudyBuddyTests' do
     inherit! :search_paths
