@@ -7,16 +7,37 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBAction func signInButton(_ sender: Any) {
+        var users = self.ref.child("users")
+        users.observe(.value, with: { snapshot in
+            let users_info = snapshot.value as! [String: Any]
+            if users_info[self.emailField.text!] == nil {
+                print("alert")
+            }
+            else {
+                var potential_user = users.child(self.emailField.text!)
+                potential_user.observe(.value, with: { snapshot in
+                    var user_info = snapshot.value as! [String: String]
+                    if user_info["password"] == self.passwordField.text! {
+                        self.performSegue(withIdentifier: "login", sender: self)
+                    }
+                    else {
+                        print("alert")
+                    }
+                })
+            }
+        })
     }
+    var ref: DatabaseReference!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        ref = Database.database().reference()
         // Do any additional setup after loading the view.
     }
 

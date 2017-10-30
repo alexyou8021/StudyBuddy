@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RegisterViewController: UIViewController {
     @IBOutlet weak var firstNameField: UITextField!
@@ -14,10 +15,25 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBAction func registerButton(_ sender: Any) {
+        var user = ["email": emailField.text, "password": passwordField.text]
+        var users = self.ref.child("users")
+        var user_info = users.child(emailField.text!)
+        users.observe(.value, with: { snapshot in
+            let users_info = snapshot.value as! [String: Any]
+            if users_info[self.emailField.text!] == nil {
+                users.child(self.emailField.text!).setValue(user)
+                self.performSegue(withIdentifier: "register", sender: self)
+            }
+            else {
+                print("alert")
+            }
+        })
     }
+    var ref: DatabaseReference!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = Database.database().reference()
 
         // Do any additional setup after loading the view.
     }

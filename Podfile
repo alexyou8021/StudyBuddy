@@ -7,6 +7,9 @@ target 'StudyBuddy' do
 
   # Pods for StudyBuddy
   pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Database'
 
   target 'StudyBuddyTests' do
     inherit! :search_paths
