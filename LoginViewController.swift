@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBAction func signInButton(_ sender: Any) {
         var users = self.ref.child("users")
+        print(users)
         users.observe(.value, with: { snapshot in
             let users_info = snapshot.value as! [String: Any]
             if users_info[self.emailField.text!] == nil {

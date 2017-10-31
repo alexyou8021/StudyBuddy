@@ -519,10 +519,18 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CSD-jH-VHG">
-                                <rect key="frame" x="0.0" y="64" width="375" height="474"/>
+                                <rect key="frame" x="0.0" y="137" width="375" height="401"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fs8-Pa-YQY">
+                                <rect key="frame" x="145" y="99" width="85" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Classes"/>
+                                <connections>
+                                    <segue destination="q0o-ig-F5J" kind="show" id="wYr-Qr-rNY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -535,14 +543,14 @@
                                 <state key="normal" title="+"/>
                             </button>
                             <connections>
-                                <segue destination="q0o-ig-F5J" kind="show" id="hZ8-mq-FFU"/>
+                                <action selector="addClassButton:" destination="Wqf-Ig-ojG" id="dnv-nJ-RjD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8iH-Nw-N8t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2471" y="-853"/>
+            <point key="canvasLocation" x="2469.5999999999999" y="-853.22338830584715"/>
         </scene>
         <!--Friends View Controller-->
         <scene sceneID="bgs-pT-5fd">
