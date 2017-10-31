@@ -1,5 +1,5 @@
 //
-//  AddClassViewController.swift
+//  BlacklistViewController.swift
 //  StudyBuddy
 //
 //  Created by Alexander You on 10/31/17.
@@ -8,9 +8,10 @@
 
 import UIKit
 
-class AddClassViewController: UIViewController {
-    @IBOutlet weak var studyField: UITextField!
-    @IBOutlet weak var courseNumberField: UITextField!
+class BlacklistViewController: UIViewController {
+    @IBOutlet weak var personField: UITextField!
+    @IBAction func blacklistButton(_ sender: Any) {
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

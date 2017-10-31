@@ -23,6 +23,8 @@
 		FA3382221FA6F1B700D38264 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3382211FA6F1B700D38264 /* GoogleService-Info.plist */; };
 		FAB837891FA90F7B003BA681 /* AddClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB837881FA90F7B003BA681 /* AddClassViewController.swift */; };
 		FAB8378B1FA90F97003BA681 /* MyScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8378A1FA90F97003BA681 /* MyScheduleViewController.swift */; };
+		FAB8378F1FA92ECF003BA681 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8378E1FA92ECF003BA681 /* SettingsViewController.swift */; };
+		FAB837911FA92F68003BA681 /* BlacklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB837901FA92F68003BA681 /* BlacklistViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		FA3382211FA6F1B700D38264 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FAB837881FA90F7B003BA681 /* AddClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClassViewController.swift; sourceTree = "<group>"; };
 		FAB8378A1FA90F97003BA681 /* MyScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyScheduleViewController.swift; sourceTree = "<group>"; };
+		FAB8378E1FA92ECF003BA681 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		FAB837901FA92F68003BA681 /* BlacklistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlacklistViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +158,9 @@
 				FA3382191FA528B800D38264 /* LoginViewController.swift */,
 				FA33821B1FA52C3800D38264 /* RegisterViewController.swift */,
 				FA3381EC1FA5232900D38264 /* Main.storyboard */,
+				FAB837901FA92F68003BA681 /* BlacklistViewController.swift */,
 				A2D81C4D1FA5398B0089B00A /* FriendsViewController.swift */,
+				FAB8378E1FA92ECF003BA681 /* SettingsViewController.swift */,
 				FAB837881FA90F7B003BA681 /* AddClassViewController.swift */,
 				FAB8378A1FA90F97003BA681 /* MyScheduleViewController.swift */,
 				FA3381F21FA5232900D38264 /* Assets.xcassets */,
@@ -486,10 +492,12 @@
 				FA33821A1FA528B800D38264 /* LoginViewController.swift in Sources */,
 				FAB837891FA90F7B003BA681 /* AddClassViewController.swift in Sources */,
 				A2D81C4E1FA5398B0089B00A /* FriendsViewController.swift in Sources */,
+				FAB837911FA92F68003BA681 /* BlacklistViewController.swift in Sources */,
 				FA3381E91FA5232900D38264 /* AppDelegate.swift in Sources */,
 				FAB8378B1FA90F97003BA681 /* MyScheduleViewController.swift in Sources */,
 				FA3381F11FA5232900D38264 /* StudyBuddy.xcdatamodeld in Sources */,
 				FA33821C1FA52C3800D38264 /* RegisterViewController.swift in Sources */,
+				FAB8378F1FA92ECF003BA681 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

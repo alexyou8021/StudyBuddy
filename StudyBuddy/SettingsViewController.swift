@@ -1,5 +1,5 @@
 //
-//  AddClassViewController.swift
+//  SettingsViewController.swift
 //  StudyBuddy
 //
 //  Created by Alexander You on 10/31/17.
@@ -8,10 +8,14 @@
 
 import UIKit
 
-class AddClassViewController: UIViewController {
-    @IBOutlet weak var studyField: UITextField!
-    @IBOutlet weak var courseNumberField: UITextField!
+class SettingsViewController: UIViewController {
+    @IBAction func autologin_switch(_ sender: Any) {
+    }
+    @IBOutlet weak var autologin: UISwitch!
 
+    @IBAction func blacklistSwitch(_ sender: Any) {
+    }
+    @IBOutlet weak var blacklist: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
 
