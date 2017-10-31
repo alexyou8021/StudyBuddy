@@ -486,12 +486,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Class"/>
                                 <connections>
-                                    <segue destination="Wqf-Ig-ojG" kind="show" id="P18-QW-COd"/>
+                                    <action selector="addClass:" destination="q0o-ig-F5J" eventType="touchUpInside" id="KYu-c9-LH5"/>
+                                    <segue destination="Wqf-Ig-ojG" kind="show" identifier="addClass2Schedule" id="P18-QW-COd"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="courseNumField" destination="vkH-jR-h2S" id="4rs-YM-Fo7"/>
+                        <outlet property="fieldStudyField" destination="6gt-2b-KML" id="JkL-Jd-qyD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yT2-BN-h59" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

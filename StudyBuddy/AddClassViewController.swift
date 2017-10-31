@@ -7,12 +7,34 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 class AddClassViewController: UIViewController {
+    @IBOutlet weak var fieldStudyField: UITextField!
+    @IBOutlet weak var courseNumField: UITextField!
+    
+    @IBAction func addClass(_ sender: Any) {
+        let user = Auth.auth().currentUser
+        let fieldStudy = (fieldStudyField.text)!
+        let courseNum = (courseNumField.text)!
+        let className = "\(fieldStudy)\(courseNum)"
+        
+        let em = user?.email
+        let users = self.ref.child("users")
+        let em2 = em!.replacingOccurrences(of: ".", with: "dot", options: .literal, range: nil)
+        
+        users.child(em2).child("classes").child(className).setValue(true)
+        self.performSegue(withIdentifier: "addClass2Schedule", sender: self)
+    }
+    
+    var ref: DatabaseReference!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        ref = Database.database().reference()
         // Do any additional setup after loading the view.
     }
 
