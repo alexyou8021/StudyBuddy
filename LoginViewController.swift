@@ -17,7 +17,9 @@ class LoginViewController: UIViewController {
         users.observe(.value, with: { snapshot in
             let users_info = snapshot.value as! [String: Any]
             if users_info[self.emailField.text!] == nil {
-                print("alert")
+                var alert = UIAlertController(title: "", message: "The username or password is incorrect.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }
             else {
                 var potential_user = users.child(self.emailField.text!)
@@ -27,17 +29,21 @@ class LoginViewController: UIViewController {
                         self.performSegue(withIdentifier: "login", sender: self)
                     }
                     else {
-                        print("alert")
+                        let alert = UIAlertController(title: "", message: "The username or password is incorrect.", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
                     }
                 })
             }
         })
     }
     var ref: DatabaseReference!
+    var login_alert:UIAlertController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
+
         // Do any additional setup after loading the view.
     }
 
