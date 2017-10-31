@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 class RegisterViewController: UIViewController {
     @IBOutlet weak var firstNameField: UITextField!
@@ -21,27 +23,20 @@ class RegisterViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
         else {
-            var user = ["email": emailField.text, "password": passwordField.text]
-            var users = self.ref.child("users")
-            var user_info = users.child(emailField.text!)
-            users.observe(.value, with: { snapshot in
-                let users_info = snapshot.value as! [String: Any]
-                if users_info[self.emailField.text!] == nil {
-                    users.child(self.emailField.text!).setValue(user)
+            let email = emailField.text
+            let password = passwordField.text
+            Auth.auth().createUser(withEmail: email!, password: password!) { (user, error) in
+                if error == nil {
                     self.performSegue(withIdentifier: "register", sender: self)
                 }
-                else {
-                    let alert = UIAlertController(title: "", message: "This username is already in use.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                }
-            })
+            }
         }
     }
     var ref: DatabaseReference!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         ref = Database.database().reference()
 
         // Do any additional setup after loading the view.
