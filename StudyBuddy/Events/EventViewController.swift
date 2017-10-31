@@ -1,18 +1,26 @@
 //
-//  AddFriendsViewController.swift
+//  EventViewController.swift
 //  StudyBuddy
 //
-//  Created by Vikram Idury on 10/29/17.
+//  Created by Vikram Idury on 10/31/17.
 //  Copyright © 2017 Alexander You. All rights reserved.
 //
 
 import UIKit
 
-class AddFriendsViewController: UIViewController {
+class EventViewController: UIViewController {
+    
+    var event: Event!
 
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        nameLabel.text = self.event.name
+        timeLabel.text = self.event.time
+        locationLabel.text = self.event.location
         // Do any additional setup after loading the view.
     }
 

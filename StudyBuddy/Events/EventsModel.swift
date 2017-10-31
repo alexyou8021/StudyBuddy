@@ -7,3 +7,24 @@
 //
 
 import Foundation
+
+/*
+ users: {
+     user_id: {
+         (... other data ...)
+         hosted_events: [event1_id, event2_id, ...]
+         invited_events: [...]
+         accepted_events: [...]
+     }
+ }
+ 
+ events: {
+     event_id: {
+         host: user_id,
+         name: "event_name",
+         time: "datetime",
+         location: "location"
+     }
+ }
+*/
+
