@@ -21,6 +21,8 @@
 		FA33821A1FA528B800D38264 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3382191FA528B800D38264 /* LoginViewController.swift */; };
 		FA33821C1FA52C3800D38264 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA33821B1FA52C3800D38264 /* RegisterViewController.swift */; };
 		FA3382221FA6F1B700D38264 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3382211FA6F1B700D38264 /* GoogleService-Info.plist */; };
+		FAB837891FA90F7B003BA681 /* AddClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB837881FA90F7B003BA681 /* AddClassViewController.swift */; };
+		FAB8378B1FA90F97003BA681 /* MyScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8378A1FA90F97003BA681 /* MyScheduleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		FA3382191FA528B800D38264 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../LoginViewController.swift; sourceTree = "<group>"; };
 		FA33821B1FA52C3800D38264 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		FA3382211FA6F1B700D38264 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FAB837881FA90F7B003BA681 /* AddClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClassViewController.swift; sourceTree = "<group>"; };
+		FAB8378A1FA90F97003BA681 /* MyScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyScheduleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,8 @@
 				FA33821B1FA52C3800D38264 /* RegisterViewController.swift */,
 				FA3381EC1FA5232900D38264 /* Main.storyboard */,
 				A2D81C4D1FA5398B0089B00A /* FriendsViewController.swift */,
+				FAB837881FA90F7B003BA681 /* AddClassViewController.swift */,
+				FAB8378A1FA90F97003BA681 /* MyScheduleViewController.swift */,
 				FA3381F21FA5232900D38264 /* Assets.xcassets */,
 				FA3381F41FA5232900D38264 /* LaunchScreen.storyboard */,
 				FA3381F71FA5232900D38264 /* Info.plist */,
@@ -478,8 +484,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA33821A1FA528B800D38264 /* LoginViewController.swift in Sources */,
+				FAB837891FA90F7B003BA681 /* AddClassViewController.swift in Sources */,
 				A2D81C4E1FA5398B0089B00A /* FriendsViewController.swift in Sources */,
 				FA3381E91FA5232900D38264 /* AppDelegate.swift in Sources */,
+				FAB8378B1FA90F97003BA681 /* MyScheduleViewController.swift in Sources */,
 				FA3381F11FA5232900D38264 /* StudyBuddy.xcdatamodeld in Sources */,
 				FA33821C1FA52C3800D38264 /* RegisterViewController.swift in Sources */,
 			);

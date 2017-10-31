@@ -23,7 +23,7 @@ class RegisterViewController: UIViewController {
         else {
             var user = ["email": emailField.text, "password": passwordField.text]
             var users = self.ref.child("users")
-            var user_info = users.child(emailField.text! as String)
+            var user_info = users.child(emailField.text!)
             users.observe(.value, with: { snapshot in
                 let users_info = snapshot.value as! [String: Any]
                 if users_info[self.emailField.text!] == nil {
@@ -31,7 +31,6 @@ class RegisterViewController: UIViewController {
                     self.performSegue(withIdentifier: "register", sender: self)
                 }
                 else {
-                    print("alert")
                     let alert = UIAlertController(title: "", message: "This username is already in use.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
