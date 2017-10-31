@@ -22,11 +22,12 @@ class LoginViewController: UIViewController {
             if user != nil {
                 self.performSegue(withIdentifier: "login", sender: self)
             } else {
-                var alert = UIAlertController(title: "", message: "The username or password is incorrect.", preferredStyle: .alert)
+                let alert = UIAlertController(title: "", message: "The username or password is incorrect.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
         }
+            
     }
     var ref: DatabaseReference!
     var login_alert:UIAlertController?

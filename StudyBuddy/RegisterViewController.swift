@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseAnalytics
 
 class RegisterViewController: UIViewController {
     @IBOutlet weak var firstNameField: UITextField!
@@ -25,9 +26,25 @@ class RegisterViewController: UIViewController {
         else {
             let email = emailField.text
             let password = passwordField.text
-            Auth.auth().createUser(withEmail: email!, password: password!) { (user, error) in
-                if error == nil {
-                    self.performSegue(withIdentifier: "register", sender: self)
+            if (password?.characters.count)! < 6 {
+                let alert = UIAlertController(title: "", message: "Password must be at least 6 characters.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                Auth.auth().createUser(withEmail: email!, password: password!) { (user, error) in
+                    if error == nil {
+                        let em = email
+                        let users = self.ref.child("users")
+                        let em2 = em!.replacingOccurrences(of: ".", with: "dot", options: .literal, range: nil)
+                        users.child(em2).child("first_name").setValue(self.firstNameField.text)
+                        users.child(em2).child("last_name").setValue(self.lastNameField.text)
+                        
+                        self.performSegue(withIdentifier: "register", sender: self)
+                    } else {
+                        let alert = UIAlertController(title: "", message: error?.localizedDescription, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
                 }
             }
         }
