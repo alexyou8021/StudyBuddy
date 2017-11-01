@@ -23,10 +23,10 @@ class AddFriendViewController: UIViewController {
         let em = user?.email
         let users = self.ref.child("users")
         let em2 = em!.replacingOccurrences(of: ".", with: "dot", options: .literal, range: nil)
-        print(em2)
+        let friendName2 = friendName!.replacingOccurrences(of: ".", with: "dot", options: .literal, range: nil)
         let friends = users.child(em2).child("friends")
         
-        friends.child(friendName!).setValue(true)
+        friends.child(friendName2).setValue(true)
     }
     
     var ref: DatabaseReference!

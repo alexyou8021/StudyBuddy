@@ -670,7 +670,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="JJT-Bv-bdx" kind="show" id="dgx-XN-y2O"/>
+                                            <segue destination="JJT-Bv-bdx" kind="show" identifier="segueToFriend" id="dgx-XN-y2O"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -696,16 +696,16 @@
             </objects>
             <point key="canvasLocation" x="3301.5999999999999" y="-853.22338830584715"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Friend Schedule Table View Controller-->
         <scene sceneID="WVX-iv-Awu">
             <objects>
-                <tableViewController id="JJT-Bv-bdx" sceneMemberID="viewController">
+                <tableViewController id="JJT-Bv-bdx" customClass="FriendScheduleTableViewController" customModule="StudyBuddy" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bfM-Wp-FGl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="eSb-gF-kfJ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addFriendCell" id="eSb-gF-kfJ">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eSb-gF-kfJ" id="kvU-Jd-Ech">
@@ -948,9 +948,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ni4-pH-ewJ"/>
+        <segue reference="ORi-CZ-rkE"/>
+        <segue reference="P18-QW-COd"/>
         <segue reference="OQS-Np-fNe"/>
         <segue reference="BCV-ug-Zcv"/>
-        <segue reference="P18-QW-COd"/>
     </inferredMetricsTieBreakers>
 </document>
