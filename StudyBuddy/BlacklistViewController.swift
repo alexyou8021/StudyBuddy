@@ -60,14 +60,12 @@ class BlacklistViewController: UIViewController, UITableViewDelegate, UITableVie
                 //print(self.blacklist)
                 self.blacklistArray = []
                 for person in self.blacklist.keys {
-                    print(person)
                     self.blacklistArray.append(person)
                 }
                 self.blacklistTableView.reloadData()
             }
         })
         
-        print(blacklistArray)
         blacklistTableView.delegate = self
         blacklistTableView.dataSource = self
 
