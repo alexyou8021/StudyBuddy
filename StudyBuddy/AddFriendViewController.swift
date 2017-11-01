@@ -1,42 +1,43 @@
 //
-//  AddClassViewController.swift
+//  AddFriendViewController.swift
 //  StudyBuddy
 //
-//  Created by Alexander You on 10/31/17.
+//  Created by Mitchell Minkoff on 10/31/17.
 //  Copyright © 2017 Alexander You. All rights reserved.
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
 import FirebaseDatabase
+import FirebaseAuth
+import Firebase
 
-class AddClassViewController: UIViewController {
-    @IBOutlet weak var fieldStudyField: UITextField!
-    @IBOutlet weak var courseNumField: UITextField!
+class AddFriendViewController: UIViewController {
+
+    @IBOutlet weak var friendEmail: UITextField!
     
-    @IBAction func addClass(_ sender: Any) {
+    @IBAction func addFriendButton(_ sender: Any) {
         let user = Auth.auth().currentUser
-        let fieldStudy = (fieldStudyField.text)!
-        let courseNum = (courseNumField.text)!
-        let className = "\(fieldStudy)\(courseNum)"
+        
+        let friendName = friendEmail.text
         
         let em = user?.email
         let users = self.ref.child("users")
         let em2 = em!.replacingOccurrences(of: ".", with: "dot", options: .literal, range: nil)
+        let friendName2 = friendName!.replacingOccurrences(of: ".", with: "dot", options: .literal, range: nil)
+        let friends = users.child(em2).child("friends")
         
-        users.child(em2).child("classes").child(className).setValue(true)
+        friends.child(friendName2).setValue(true)
     }
     
     var ref: DatabaseReference!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         ref = Database.database().reference()
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

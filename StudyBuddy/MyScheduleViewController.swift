@@ -32,10 +32,16 @@ class MyScheduleViewController: UIViewController, UITableViewDelegate, UITableVi
         print(em2)
         
         self.ref.child("users").child(em2).child("classes").observe(.value, with: { snapshot in
-            self.numClasses = Int(snapshot.childrenCount)
-            self.main_classes = snapshot.value as! [String:Bool]
-            self.keys = Array(self.main_classes.keys)
-            self.scheduleTableView.reloadData()
+            if snapshot.exists() {
+                self.numClasses = Int(snapshot.childrenCount)
+                self.main_classes = snapshot.value as! [String:Bool]
+                self.keys = Array(self.main_classes.keys)
+                self.scheduleTableView.reloadData()
+            } else {
+                self.main_classes = [:]
+                self.keys = []
+                self.scheduleTableView.reloadData()
+            }
         })
         // Do any additional setup after loading the view.
     }
