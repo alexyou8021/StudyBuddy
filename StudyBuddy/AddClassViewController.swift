@@ -26,7 +26,6 @@ class AddClassViewController: UIViewController {
         let em2 = em!.replacingOccurrences(of: ".", with: "dot", options: .literal, range: nil)
         
         users.child(em2).child("classes").child(className).setValue(true)
-        self.performSegue(withIdentifier: "addClass2Schedule", sender: self)
     }
     
     var ref: DatabaseReference!
