@@ -17,6 +17,7 @@ class MyScheduleViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var main_classes:[String:Bool] = [:]
     var keys:[String] = []
+    var numClasses = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,25 @@ class MyScheduleViewController: UIViewController, UITableViewDelegate, UITableVi
         scheduleTableView.delegate = self
         scheduleTableView.dataSource = self
         ref = Database.database().reference()
+        
+        let user = Auth.auth().currentUser
+        let em = user?.email
+        let em2 = em!.replacingOccurrences(of: ".", with: "dot", options: .literal, range: nil)
+        print(em2)
+        
+        self.ref.child("users").child(em2).child("classes").observe(.value, with: { snapshot in
+            self.numClasses = Int(snapshot.childrenCount)
+            self.main_classes = snapshot.value as! [String:Bool]
+            self.keys = Array(self.main_classes.keys)
+            self.scheduleTableView.reloadData()
+        })
         // Do any additional setup after loading the view.
+    }
+    
+    func get_amount() -> Int {
+        
+        
+        return self.numClasses
     }
     
     var ref: DatabaseReference!
@@ -41,35 +60,17 @@ class MyScheduleViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        let user = Auth.auth().currentUser
-        let em = user?.email
-        let em2 = em!.replacingOccurrences(of: ".", with: "dot", options: .literal, range: nil)
-        var num = 0
-        
-        self.ref.child("users").child(em2).child("classes").observe(.value, with: { snapshot in
-            num = Int(snapshot.childrenCount)
-        })
-        
-        return num
+        return self.numClasses
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath)
-        let user = Auth.auth().currentUser
-        let em = user?.email
-        let em2 = em!.replacingOccurrences(of: ".", with: "dot", options: .literal, range: nil)
         
         // Configure the cell...
-        self.ref.child("users").child(em2).child("classes").observe(.value, with: { snapshot in
-            self.main_classes = snapshot.value as! [String:Bool]
-            self.keys = Array(self.main_classes.keys)
-        })
         
         let object = self.keys[indexPath.row]
         
-        cell.textLabel?.text =  object
+        cell.textLabel?.text = object
         
         return cell
     }
