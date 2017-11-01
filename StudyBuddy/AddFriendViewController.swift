@@ -11,7 +11,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import Firebase
 
-class AddFriendViewController: UIViewController {
+class AddFriendViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var friendEmail: UITextField!
     
@@ -33,6 +33,7 @@ class AddFriendViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        friendEmail.delegate = self
         
         ref = Database.database().reference()
         // Do any additional setup after loading the view.
@@ -41,6 +42,16 @@ class AddFriendViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // Below code taken from TestKeyboardDismiss
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
 

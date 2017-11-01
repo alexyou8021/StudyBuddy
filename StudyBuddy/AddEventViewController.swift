@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddEventViewController: UIViewController {
+class AddEventViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var statusLabel: UILabel!
     
     @IBOutlet weak var nameField: UITextField!
@@ -18,6 +18,9 @@ class AddEventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameField.delegate = self
+        timeField.delegate = self
+        locationField.delegate = self
         selectedFriends = Set<String>()
         // Do any additional setup after loading the view.
     }
@@ -48,6 +51,16 @@ class AddEventViewController: UIViewController {
         let seg = segue.destination as! EventFriendsTableViewController
         // Pass the selected object to the new view controller.
         seg.addEventVC = self
+    }
+    
+    // Below code taken from TestKeyboardDismiss
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
 

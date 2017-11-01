@@ -11,7 +11,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
-class AddClassViewController: UIViewController {
+class AddClassViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var fieldStudyField: UITextField!
     @IBOutlet weak var courseNumField: UITextField!
     
@@ -32,7 +32,8 @@ class AddClassViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        fieldStudyField.delegate = self
+        courseNumField.delegate = self
         ref = Database.database().reference()
         // Do any additional setup after loading the view.
     }
@@ -42,6 +43,15 @@ class AddClassViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // Below code taken from TestKeyboardDismiss
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 
     /*
     // MARK: - Navigation
