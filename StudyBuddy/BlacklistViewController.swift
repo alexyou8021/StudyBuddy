@@ -11,7 +11,7 @@ import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 
-class BlacklistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class BlacklistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     @IBOutlet weak var personField: UITextField!
     @IBAction func blacklistButton(_ sender: Any) {
         let users = ref.child("users")
@@ -48,6 +48,7 @@ class BlacklistViewController: UIViewController, UITableViewDelegate, UITableVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        personField.delegate = self
         ref = Database.database().reference()
         let users = ref.child("users")
         let em = Auth.auth().currentUser!.email!.replacingOccurrences(of: ".", with: "dot")
@@ -92,6 +93,16 @@ class BlacklistViewController: UIViewController, UITableViewDelegate, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "blacklistCell", for: indexPath)
         cell.textLabel?.text = blacklistArray[indexPath.item]
         return cell
+    }
+    
+    // Below code taken from TestKeyboardDismiss
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
 
