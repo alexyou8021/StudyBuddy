@@ -11,6 +11,16 @@
 		A2D81C4E1FA5398B0089B00A /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D81C4D1FA5398B0089B00A /* FriendsViewController.swift */; };
 		A2D81C521FA94B880089B00A /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D81C511FA94B880089B00A /* AddFriendViewController.swift */; };
 		A2D81C541FA95B920089B00A /* FriendScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D81C531FA95B920089B00A /* FriendScheduleTableViewController.swift */; };
+		ACE3F9311FA96823004C9FD8 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE3F92A1FA96822004C9FD8 /* AddEventViewController.swift */; };
+		ACE3F9321FA96823004C9FD8 /* EventFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE3F92B1FA96822004C9FD8 /* EventFriendsTableViewController.swift */; };
+		ACE3F9331FA96823004C9FD8 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE3F92C1FA96822004C9FD8 /* EventsTableViewController.swift */; };
+		ACE3F9341FA96823004C9FD8 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE3F92D1FA96822004C9FD8 /* EventTableViewCell.swift */; };
+		ACE3F9351FA96823004C9FD8 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE3F92E1FA96822004C9FD8 /* EventViewController.swift */; };
+		ACE3F9361FA96823004C9FD8 /* InvitedEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE3F92F1FA96823004C9FD8 /* InvitedEventTableViewCell.swift */; };
+		ACE3F9371FA96823004C9FD8 /* EventsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE3F9301FA96823004C9FD8 /* EventsModel.swift */; };
+		ACE3F93B1FA96833004C9FD8 /* EventDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE3F9381FA96833004C9FD8 /* EventDataService.swift */; };
+		ACE3F93C1FA96833004C9FD8 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE3F9391FA96833004C9FD8 /* Event.swift */; };
+		ACE3F93D1FA96833004C9FD8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE3F93A1FA96833004C9FD8 /* User.swift */; };
 		AD02C3C2178AF46362603B19 /* Pods_StudyBuddyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6AC3D762626AE36BB2BE38 /* Pods_StudyBuddyUITests.framework */; };
 		ECD05F7AC007DA2C808DFAC9 /* Pods_StudyBuddyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634A54779CDB589BB7433A8B /* Pods_StudyBuddyTests.framework */; };
 		FA3381E91FA5232900D38264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3381E81FA5232900D38264 /* AppDelegate.swift */; };
@@ -57,6 +67,16 @@
 		A2D81C4D1FA5398B0089B00A /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		A2D81C511FA94B880089B00A /* AddFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
 		A2D81C531FA95B920089B00A /* FriendScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendScheduleTableViewController.swift; sourceTree = "<group>"; };
+		ACE3F92A1FA96822004C9FD8 /* AddEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddEventViewController.swift; path = ../../../VikramStudyBuddy/Events/AddEventViewController.swift; sourceTree = "<group>"; };
+		ACE3F92B1FA96822004C9FD8 /* EventFriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventFriendsTableViewController.swift; path = ../../../VikramStudyBuddy/Events/EventFriendsTableViewController.swift; sourceTree = "<group>"; };
+		ACE3F92C1FA96822004C9FD8 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsTableViewController.swift; path = ../../../VikramStudyBuddy/Events/EventsTableViewController.swift; sourceTree = "<group>"; };
+		ACE3F92D1FA96822004C9FD8 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventTableViewCell.swift; path = ../../../VikramStudyBuddy/Events/EventTableViewCell.swift; sourceTree = "<group>"; };
+		ACE3F92E1FA96822004C9FD8 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventViewController.swift; path = ../../../VikramStudyBuddy/Events/EventViewController.swift; sourceTree = "<group>"; };
+		ACE3F92F1FA96823004C9FD8 /* InvitedEventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvitedEventTableViewCell.swift; path = ../../../VikramStudyBuddy/Events/InvitedEventTableViewCell.swift; sourceTree = "<group>"; };
+		ACE3F9301FA96823004C9FD8 /* EventsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsModel.swift; path = ../../../VikramStudyBuddy/Events/EventsModel.swift; sourceTree = "<group>"; };
+		ACE3F9381FA96833004C9FD8 /* EventDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDataService.swift; path = ../../../VikramStudyBuddy/Models/EventDataService.swift; sourceTree = "<group>"; };
+		ACE3F9391FA96833004C9FD8 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = ../../../VikramStudyBuddy/Models/Event.swift; sourceTree = "<group>"; };
+		ACE3F93A1FA96833004C9FD8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../../../VikramStudyBuddy/Models/User.swift; sourceTree = "<group>"; };
 		CA7708BEC0F1C787D45DB537 /* Pods-StudyBuddyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyBuddyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StudyBuddyTests/Pods-StudyBuddyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E6E69DFD87DBE4C2538E2F02 /* Pods_StudyBuddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyBuddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA3381E51FA5232900D38264 /* StudyBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +177,16 @@
 		FA3381E71FA5232900D38264 /* StudyBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				ACE3F9391FA96833004C9FD8 /* Event.swift */,
+				ACE3F9381FA96833004C9FD8 /* EventDataService.swift */,
+				ACE3F93A1FA96833004C9FD8 /* User.swift */,
+				ACE3F92A1FA96822004C9FD8 /* AddEventViewController.swift */,
+				ACE3F92B1FA96822004C9FD8 /* EventFriendsTableViewController.swift */,
+				ACE3F9301FA96823004C9FD8 /* EventsModel.swift */,
+				ACE3F92C1FA96822004C9FD8 /* EventsTableViewController.swift */,
+				ACE3F92D1FA96822004C9FD8 /* EventTableViewCell.swift */,
+				ACE3F92E1FA96822004C9FD8 /* EventViewController.swift */,
+				ACE3F92F1FA96823004C9FD8 /* InvitedEventTableViewCell.swift */,
 				FA3382211FA6F1B700D38264 /* GoogleService-Info.plist */,
 				FA3381E81FA5232900D38264 /* AppDelegate.swift */,
 				FA3382191FA528B800D38264 /* LoginViewController.swift */,
@@ -496,16 +526,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA33821A1FA528B800D38264 /* LoginViewController.swift in Sources */,
+				ACE3F9311FA96823004C9FD8 /* AddEventViewController.swift in Sources */,
 				A2D81C541FA95B920089B00A /* FriendScheduleTableViewController.swift in Sources */,
+				ACE3F9341FA96823004C9FD8 /* EventTableViewCell.swift in Sources */,
+				ACE3F93C1FA96833004C9FD8 /* Event.swift in Sources */,
+				ACE3F9371FA96823004C9FD8 /* EventsModel.swift in Sources */,
 				FAB837891FA90F7B003BA681 /* AddClassViewController.swift in Sources */,
+				ACE3F9351FA96823004C9FD8 /* EventViewController.swift in Sources */,
 				A2D81C521FA94B880089B00A /* AddFriendViewController.swift in Sources */,
+				ACE3F9361FA96823004C9FD8 /* InvitedEventTableViewCell.swift in Sources */,
 				A2D81C4E1FA5398B0089B00A /* FriendsViewController.swift in Sources */,
 				FAB837911FA92F68003BA681 /* BlacklistViewController.swift in Sources */,
+				ACE3F93B1FA96833004C9FD8 /* EventDataService.swift in Sources */,
 				FA3381E91FA5232900D38264 /* AppDelegate.swift in Sources */,
+				ACE3F9331FA96823004C9FD8 /* EventsTableViewController.swift in Sources */,
 				FAB8378B1FA90F97003BA681 /* MyScheduleViewController.swift in Sources */,
+				ACE3F9321FA96823004C9FD8 /* EventFriendsTableViewController.swift in Sources */,
 				FA3381F11FA5232900D38264 /* StudyBuddy.xcdatamodeld in Sources */,
 				FA33821C1FA52C3800D38264 /* RegisterViewController.swift in Sources */,
 				FAB8378F1FA92ECF003BA681 /* SettingsViewController.swift in Sources */,
+				ACE3F93D1FA96833004C9FD8 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
