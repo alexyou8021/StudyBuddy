@@ -31,7 +31,7 @@ class AddEventViewController: UIViewController {
         let name = nameField.text!
         let time = timeField.text!
         let location = locationField.text!
-        if (name.count > 0 && time.count > 0 && location.count > 0){
+        if (name.characters.count > 0 && time.characters.count > 0 && location.characters.count > 0){
             EventDataService.saveEvent(name: name, time: time, location: location, invites: selectedFriends)
             statusLabel.text = "Event added successfully"
         } else {
