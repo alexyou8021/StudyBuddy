@@ -7,15 +7,41 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseStorage
+import FirebaseDatabase
 
 class EventFriendsTableViewController: UITableViewController {
     
-    var friends : [User]!
+    var friends : [String:Bool] = [:]
+    var friendIds: [String] = []
+    var numFriends: Int = 0
+    var ref: DatabaseReference!
     var addEventVC: AddEventViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        friends = EventDataService.fetchFriends()
+        ref = Database.database().reference()
+        let user = Auth.auth().currentUser
+        let em = user?.email
+        let em2 = em!.replacingOccurrences(of: ".", with: "dot", options: .literal, range: nil)
+        print(em2)
+        
+        self.ref.child("users").child(em2).child("friends").observe(.value, with: { snapshot in
+            if snapshot.exists() {
+                self.numFriends = Int(snapshot.childrenCount)
+                self.friends = snapshot.value as! [String:Bool]
+                self.friendIds = Array(self.friends.keys)
+                self.tableView.reloadData()
+            } else {
+                self.numFriends = 0
+                self.friends = [:]
+                self.friendIds = []
+                self.tableView.reloadData()
+            }
+        })
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -37,14 +63,14 @@ class EventFriendsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return friends.count
+        return friendIds.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventFriendCell", for: indexPath)
-        let friend = friends[indexPath.row]
-        cell.textLabel?.text = "\(friend.firstName) \(friend.lastName) (\(friend.uid))"
+        let friend = friendIds[indexPath.row]
+        cell.textLabel?.text = friend
         return cell
     }
     
@@ -52,10 +78,10 @@ class EventFriendsTableViewController: UITableViewController {
         let cell = tableView.cellForRow(at: indexPath)!
         if cell.accessoryType == .checkmark {
             cell.accessoryType = .none
-            addEventVC.selectedFriends.remove(friends[indexPath.row].uid)
+            addEventVC.selectedFriends.remove(friendIds[indexPath.row])
         } else {
             cell.accessoryType = .checkmark
-            addEventVC.selectedFriends.insert(friends[indexPath.row].uid)
+            addEventVC.selectedFriends.insert(friendIds[indexPath.row])
         }
     }
  

@@ -7,10 +7,17 @@
 //
 
 import UIKit
+import FirebaseStorage
+import FirebaseDatabase
+import FirebaseAuth
 
 class EventViewController: UIViewController {
     
-    var event: Event!
+
+    var eventId: String!
+    @IBOutlet weak var eventButton: UIButton!
+    var ref: DatabaseReference!
+    var eventsTableVC: EventsTableViewController!
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -18,15 +25,43 @@ class EventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nameLabel.text = self.event.name
-        timeLabel.text = self.event.time
-        locationLabel.text = self.event.location
+        ref = Database.database().reference()
+        ref.child("events").child(self.eventId).observe(.value, with: { snapshot in
+            if snapshot.exists() {
+                let mapping = snapshot.value as! [String:String]
+                let name = mapping["name"] as! String
+                let time = mapping["time"] as! String
+                let location = mapping["location"] as! String
+                self.nameLabel.text = name
+                self.timeLabel.text = time
+                self.locationLabel.text = location
+                self.reloadInputViews()
+            }
+        })
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func eventDeleted(_ sender: Any) {
+        ref = Database.database().reference()
+        let user = Auth.auth().currentUser
+        let em = user?.email
+        let em2 = em!.replacingOccurrences(of: ".", with: "dot", options: .literal, range: nil)
+        print(em2)
+        self.ref.child("users").child(em2).child("accepted_events").child(eventId).removeValue { (_, _) in
+            if let index = self.eventsTableVC.acceptedEventIDs.index(where: {$0 == self.eventId}) {
+                self.eventsTableVC.acceptedEventIDs.remove(at: index)
+                self.eventsTableVC.tableView.reloadData()
+                self.eventButton.isEnabled = false
+                self.eventButton.setTitle("Event Deleted", for: .normal)
+            }
+            
+        }
+        self.eventsTableVC.tableView.reloadData()
     }
     
 

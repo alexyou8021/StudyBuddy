@@ -7,14 +7,21 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseAuth
+import FirebaseStorage
 
 class EventsTableViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var eventsToggle: UISegmentedControl!
+    
+    var ref: DatabaseReference!
 
-    var acceptedEvents: [Event]!
-    var invitedEvents: [Event]!
+    var acceptedEventIDs: [String] = []
+    var invitedEventIDs: [String] = []
+
+    
     var mode = ListMode.accepted
     enum ListMode {
         case accepted
@@ -27,22 +34,51 @@ class EventsTableViewController: UIViewController,UITableViewDelegate, UITableVi
         } else {
             mode = ListMode.invited
         }
-        reloadTable()
+        tableView.reloadData()
     }
 
-    
-    func reloadTable(){
-        acceptedEvents = EventDataService.fetchAcceptedEvents()
-        invitedEvents = EventDataService.fetchInvitedEvents()
-        self.tableView.reloadData()
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        reloadTable()
+        fetchAll()
     }
+    
+    func fetchAll() {
+        ref = Database.database().reference()
+        let user = Auth.auth().currentUser
+        let em = user?.email
+        let em2 = em!.replacingOccurrences(of: ".", with: "dot", options: .literal, range: nil)
+        
+        let userRef = self.ref.child("users").child(em2)
+        fetchEvents(userRef: userRef, attribute: "invited_events")
+        fetchEvents(userRef: userRef, attribute: "accepted_events")
+    }
+    
+    private func fetchEvents(userRef: DatabaseReference, attribute: String) {
+        userRef.child(attribute).observe(.value, with: { snapshot in
+            if snapshot.exists() {
+                let mapping = snapshot.value as! [String:Bool]
+                let eventIDs = Array(mapping.keys)
+                print(eventIDs)
+                switch attribute {
+                case "invited_events":
+                    self.invitedEventIDs = eventIDs
+                    break
+                case "accepted_events":
+                    self.acceptedEventIDs = eventIDs
+                    break
+                default:
+                    break
+                }
+                self.tableView.reloadData()
+            }
+        })
+        
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -57,9 +93,9 @@ class EventsTableViewController: UIViewController,UITableViewDelegate, UITableVi
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if mode == ListMode.accepted {
-            return acceptedEvents.count
+            return acceptedEventIDs.count
         } else {
-            return invitedEvents.count
+            return invitedEventIDs.count
         }
     }
 
@@ -68,16 +104,17 @@ class EventsTableViewController: UIViewController,UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if mode == ListMode.accepted {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventTableViewCell
-            cell.eventLabel?.text = acceptedEvents[indexPath.row].name
-            cell.event = acceptedEvents[indexPath.row]
+            cell.eventId = self.acceptedEventIDs[indexPath.row]
+            cell.refreshLabels()
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventInviteCell", for: indexPath) as! InvitedEventTableViewCell
-            cell.eventLabel?.text = invitedEvents[indexPath.row].name
-            cell.event = invitedEvents[indexPath.row]
+            cell.eventID = self.invitedEventIDs[indexPath.row]
+            cell.parentTableVC = self
+            cell.refreshLabels()
             return cell
         }
-
+ 
     }
     
     // MARK: - Navigation
@@ -89,7 +126,8 @@ class EventsTableViewController: UIViewController,UITableViewDelegate, UITableVi
             let seg = segue.destination as! EventViewController
             // Pass the selected object to the new view controller.
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                seg.event = acceptedEvents[indexPath.row]
+                seg.eventId = acceptedEventIDs[indexPath.row]
+                seg.eventsTableVC = self
             }
         } else if segue.identifier == "addEventSegue" {
             
