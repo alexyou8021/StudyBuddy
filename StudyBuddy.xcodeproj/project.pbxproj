@@ -24,6 +24,7 @@
 		ECD05F7AC007DA2C808DFAC9 /* Pods_StudyBuddyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634A54779CDB589BB7433A8B /* Pods_StudyBuddyTests.framework */; };
 		FA2CAA631FC3EDD000A2202D /* DMListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2CAA621FC3EDD000A2202D /* DMListTableViewController.swift */; };
 		FA2CAA651FC3EDF400A2202D /* DMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2CAA641FC3EDF400A2202D /* DMViewController.swift */; };
+		FA2CAA671FC3F7BA00A2202D /* DMTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2CAA661FC3F7BA00A2202D /* DMTableViewCell.swift */; };
 		FA3381E91FA5232900D38264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3381E81FA5232900D38264 /* AppDelegate.swift */; };
 		FA3381EE1FA5232900D38264 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3381EC1FA5232900D38264 /* Main.storyboard */; };
 		FA3381F11FA5232900D38264 /* StudyBuddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA3381EF1FA5232900D38264 /* StudyBuddy.xcdatamodeld */; };
@@ -81,6 +82,7 @@
 		E6E69DFD87DBE4C2538E2F02 /* Pods_StudyBuddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyBuddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA2CAA621FC3EDD000A2202D /* DMListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMListTableViewController.swift; sourceTree = "<group>"; };
 		FA2CAA641FC3EDF400A2202D /* DMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMViewController.swift; sourceTree = "<group>"; };
+		FA2CAA661FC3F7BA00A2202D /* DMTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMTableViewCell.swift; sourceTree = "<group>"; };
 		FA3381E51FA5232900D38264 /* StudyBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA3381E81FA5232900D38264 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA3381ED1FA5232900D38264 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				A2D81C531FA95B920089B00A /* FriendScheduleTableViewController.swift */,
 				FA2CAA621FC3EDD000A2202D /* DMListTableViewController.swift */,
 				FA2CAA641FC3EDF400A2202D /* DMViewController.swift */,
+				FA2CAA661FC3F7BA00A2202D /* DMTableViewCell.swift */,
 				FAB837901FA92F68003BA681 /* BlacklistViewController.swift */,
 				A2D81C4D1FA5398B0089B00A /* FriendsViewController.swift */,
 				A2D81C511FA94B880089B00A /* AddFriendViewController.swift */,
@@ -533,6 +536,7 @@
 				ACF4958C1FA9759300721D52 /* InvitedEventTableViewCell.swift in Sources */,
 				FAB837891FA90F7B003BA681 /* AddClassViewController.swift in Sources */,
 				A2D81C521FA94B880089B00A /* AddFriendViewController.swift in Sources */,
+				FA2CAA671FC3F7BA00A2202D /* DMTableViewCell.swift in Sources */,
 				A2D81C4E1FA5398B0089B00A /* FriendsViewController.swift in Sources */,
 				ACF495881FA9759300721D52 /* EventViewController.swift in Sources */,
 				ACF4958E1FA9759300721D52 /* AddEventViewController.swift in Sources */,

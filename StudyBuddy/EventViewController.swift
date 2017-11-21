@@ -29,9 +29,9 @@ class EventViewController: UIViewController {
         ref.child("events").child(self.eventId).observe(.value, with: { snapshot in
             if snapshot.exists() {
                 let mapping = snapshot.value as! [String:String]
-                let name = mapping["name"] as! String
-                let time = mapping["time"] as! String
-                let location = mapping["location"] as! String
+                let name = mapping["name"]
+                let time = mapping["time"]
+                let location = mapping["location"]
                 self.nameLabel.text = name
                 self.timeLabel.text = time
                 self.locationLabel.text = location

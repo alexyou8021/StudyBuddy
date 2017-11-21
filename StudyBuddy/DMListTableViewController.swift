@@ -13,24 +13,30 @@ import FirebaseAuth
 
 class DMListTableViewController: UITableViewController {
     
-    var ref: DatabaseReference?
+    var ref: DatabaseReference!
+    var friends:[String:Bool] = [:]
+    var keys:[String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var ref = Database.database().reference()
+        ref = Database.database().reference()
         let user = Auth.auth().currentUser
         let em = user?.email
         let em2 = em!.replacingOccurrences(of: ".", with: "dot", options: .literal, range: nil)
-        print(em2)
         
         self.ref?.child("users").child(em2).child("friends").observe(.value, with: { snapshot in
             if snapshot.exists() {
-                print(snapshot.value)
+                self.friends = snapshot.value as! [String: Bool]
+                self.keys = Array(self.friends.keys)
+                self.tableView.reloadData()
             } else {
                 print("x")
+                self.friends = [:]
+                self.keys = []
             }
         })
+        print(self.friends)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -53,14 +59,13 @@ class DMListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return self.keys.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DM", for: indexPath)
-
+        cell.textLabel?.text = self.keys[indexPath.item]
         // Configure the cell...
-
         return cell
     }
 
@@ -99,14 +104,16 @@ class DMListTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if let destinationVC = segue.destination as? DMViewController {
+            let indexPath = self.tableView.indexPathForSelectedRow
+            let friend = keys[(indexPath?.row)!]
+            destinationVC.friendEmail = friend.replacingOccurrences(of: ".", with: "dot")
+        }
     }
-    */
-
 }
