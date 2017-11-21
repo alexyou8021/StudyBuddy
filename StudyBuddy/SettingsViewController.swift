@@ -7,9 +7,18 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 class SettingsViewController: UIViewController {
     @IBAction func autologin_switch(_ sender: Any) {
+        let ref = Database.database().reference()
+        let user = Auth.auth().currentUser
+        let em = user?.email
+        let em2 = em!.replacingOccurrences(of: ".", with: "dot", options: .literal, range: nil)
+        
+        ref.child("users").child(em2).child("autologin").setValue(autologin.isOn)
     }
     @IBOutlet weak var autologin: UISwitch!
 
@@ -20,6 +29,11 @@ class SettingsViewController: UIViewController {
         else {
             toBlacklist.isHidden = true
         }
+        let ref = Database.database().reference()
+        let user = Auth.auth().currentUser
+        let em = user?.email
+        let em2 = em!.replacingOccurrences(of: ".", with: "dot", options: .literal, range: nil)
+        ref.child("users").child(em2).child("blacklisting").setValue(blacklist.isOn)
     }
     @IBOutlet weak var toBlacklist: UIButton!
     @IBOutlet weak var blacklist: UISwitch!
