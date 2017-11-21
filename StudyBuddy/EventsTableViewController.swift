@@ -60,15 +60,27 @@ class EventsTableViewController: UIViewController,UITableViewDelegate, UITableVi
     private func fetchEvents(userRef: DatabaseReference, attribute: String) {
         userRef.child(attribute).observe(.value, with: { snapshot in
             if snapshot.exists() {
+                print("UPDATE")
                 let mapping = snapshot.value as! [String:Bool]
                 let eventIDs = Array(mapping.keys)
-                print(eventIDs)
                 switch attribute {
                 case "invited_events":
                     self.invitedEventIDs = eventIDs
                     break
                 case "accepted_events":
                     self.acceptedEventIDs = eventIDs
+                    break
+                default:
+                    break
+                }
+                self.tableView.reloadData()
+            } else {
+                switch attribute {
+                case "invited_events":
+                    self.invitedEventIDs = []
+                    break
+                case "accepted_events":
+                    self.acceptedEventIDs = []
                     break
                 default:
                     break

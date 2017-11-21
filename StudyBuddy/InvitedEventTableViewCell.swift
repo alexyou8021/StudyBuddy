@@ -51,14 +51,7 @@ class InvitedEventTableViewCell: UITableViewCell {
         let em2 = em!.replacingOccurrences(of: ".", with: "dot", options: .literal, range: nil)
         let userRef = self.ref.child("users").child(em2)
         userRef.child("accepted_events").child(event.eid).setValue(true)
-        userRef.child("invited_events").child(event.eid).removeValue { (_, _) in
-            if let idx = self.parentTableVC.invitedEventIDs.index(of: self.event.eid) {
-                self.parentTableVC.invitedEventIDs.remove(at: idx)
-                self.parentTableVC.tableView.deleteRows(at: [IndexPath(row: idx, section: 0)], with: .automatic)
-            }
-            
-        }
-        parentTableVC.tableView.reloadData()
+        userRef.child("invited_events").child(event.eid).removeValue()
     }
     
     @IBAction func eventDeclined(_ sender: UIButton) {
@@ -67,13 +60,14 @@ class InvitedEventTableViewCell: UITableViewCell {
         let em2 = em!.replacingOccurrences(of: ".", with: "dot", options: .literal, range: nil)
         
         let userRef = self.ref.child("users").child(em2)
-        userRef.child("invited_events").child(event.eid).removeValue { (_, _) in
-            if let idx = self.parentTableVC.invitedEventIDs.index(of: self.event.eid) {
-                self.parentTableVC.invitedEventIDs.remove(at: idx)
-                self.parentTableVC.tableView.deleteRows(at: [IndexPath(row: idx, section: 0)], with: .automatic)
-            }
-            
-        }
+        userRef.child("invited_events").child(event.eid).removeValue()
+//        userRef.child("invited_events").child(event.eid).removeValue { (_, _) in
+//            if let idx = self.parentTableVC.invitedEventIDs.index(of: self.event.eid) {
+//                self.parentTableVC.invitedEventIDs.remove(at: idx)
+//                self.parentTableVC.tableView.deleteRows(at: [IndexPath(row: idx, section: 0)], with: .automatic)
+//            }
+//
+//        }
         
     }
     

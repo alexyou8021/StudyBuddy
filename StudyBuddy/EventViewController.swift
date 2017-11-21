@@ -51,16 +51,9 @@ class EventViewController: UIViewController {
         let user = Auth.auth().currentUser
         let em = user?.email
         let em2 = em!.replacingOccurrences(of: ".", with: "dot", options: .literal, range: nil)
-        print(em2)
-        self.ref.child("users").child(em2).child("accepted_events").child(eventId).removeValue { (_, _) in
-            if let index = self.eventsTableVC.acceptedEventIDs.index(where: {$0 == self.eventId}) {
-                self.eventsTableVC.acceptedEventIDs.remove(at: index)
-                self.eventsTableVC.tableView.reloadData()
-                self.eventButton.isEnabled = false
-                self.eventButton.setTitle("Event Deleted", for: .normal)
-            }
-            
-        }
+        self.ref.child("users").child(em2).child("accepted_events").child(eventId).removeValue()
+        self.eventButton.isEnabled = false
+        self.eventButton.setTitle("Event Deleted", for: .normal)
         self.eventsTableVC.tableView.reloadData()
     }
     

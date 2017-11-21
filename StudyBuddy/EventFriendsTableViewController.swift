@@ -25,7 +25,6 @@ class EventFriendsTableViewController: UITableViewController {
         let user = Auth.auth().currentUser
         let em = user?.email
         let em2 = em!.replacingOccurrences(of: ".", with: "dot", options: .literal, range: nil)
-        print(em2)
         
         self.ref.child("users").child(em2).child("friends").observe(.value, with: { snapshot in
             if snapshot.exists() {
