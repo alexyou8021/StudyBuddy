@@ -41,7 +41,7 @@ class AddEventViewController: UIViewController, UITextFieldDelegate {
         let time = timeField.text!
         let location = locationField.text!
         if (name.characters.count > 0 && time.characters.count > 0 && location.characters.count > 0){
-            EventDataService.saveEvent(name: name, time: time, location: location, invites: selectedFriends)
+            saveEvent(name: name, time: time, location: location, invites: selectedFriends)
             statusLabel.text = "Event added successfully"
         } else {
            statusLabel.text = "Must fill out all fields"
