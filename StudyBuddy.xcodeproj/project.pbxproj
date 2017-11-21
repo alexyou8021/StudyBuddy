@@ -22,6 +22,8 @@
 		ACF495901FA9759300721D52 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF495871FA9759300721D52 /* EventTableViewCell.swift */; };
 		AD02C3C2178AF46362603B19 /* Pods_StudyBuddyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6AC3D762626AE36BB2BE38 /* Pods_StudyBuddyUITests.framework */; };
 		ECD05F7AC007DA2C808DFAC9 /* Pods_StudyBuddyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634A54779CDB589BB7433A8B /* Pods_StudyBuddyTests.framework */; };
+		FA2CAA631FC3EDD000A2202D /* DMListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2CAA621FC3EDD000A2202D /* DMListTableViewController.swift */; };
+		FA2CAA651FC3EDF400A2202D /* DMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2CAA641FC3EDF400A2202D /* DMViewController.swift */; };
 		FA3381E91FA5232900D38264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3381E81FA5232900D38264 /* AppDelegate.swift */; };
 		FA3381EE1FA5232900D38264 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3381EC1FA5232900D38264 /* Main.storyboard */; };
 		FA3381F11FA5232900D38264 /* StudyBuddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA3381EF1FA5232900D38264 /* StudyBuddy.xcdatamodeld */; };
@@ -77,6 +79,8 @@
 		ACF495871FA9759300721D52 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		CA7708BEC0F1C787D45DB537 /* Pods-StudyBuddyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyBuddyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StudyBuddyTests/Pods-StudyBuddyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E6E69DFD87DBE4C2538E2F02 /* Pods_StudyBuddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyBuddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA2CAA621FC3EDD000A2202D /* DMListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMListTableViewController.swift; sourceTree = "<group>"; };
+		FA2CAA641FC3EDF400A2202D /* DMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMViewController.swift; sourceTree = "<group>"; };
 		FA3381E51FA5232900D38264 /* StudyBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA3381E81FA5232900D38264 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA3381ED1FA5232900D38264 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -175,6 +179,7 @@
 		FA3381E71FA5232900D38264 /* StudyBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				FA3381EC1FA5232900D38264 /* Main.storyboard */,
 				ACF495851FA9759300721D52 /* AddEventViewController.swift */,
 				ACF495801FA9759200721D52 /* Event.swift */,
 				ACF495861FA9759300721D52 /* EventDataService.swift */,
@@ -188,8 +193,9 @@
 				FA3381E81FA5232900D38264 /* AppDelegate.swift */,
 				FA3382191FA528B800D38264 /* LoginViewController.swift */,
 				FA33821B1FA52C3800D38264 /* RegisterViewController.swift */,
-				FA3381EC1FA5232900D38264 /* Main.storyboard */,
 				A2D81C531FA95B920089B00A /* FriendScheduleTableViewController.swift */,
+				FA2CAA621FC3EDD000A2202D /* DMListTableViewController.swift */,
+				FA2CAA641FC3EDF400A2202D /* DMViewController.swift */,
 				FAB837901FA92F68003BA681 /* BlacklistViewController.swift */,
 				A2D81C4D1FA5398B0089B00A /* FriendsViewController.swift */,
 				A2D81C511FA94B880089B00A /* AddFriendViewController.swift */,
@@ -537,8 +543,10 @@
 				ACF4958F1FA9759300721D52 /* EventDataService.swift in Sources */,
 				ACF4958B1FA9759300721D52 /* EventsTableViewController.swift in Sources */,
 				FA3381E91FA5232900D38264 /* AppDelegate.swift in Sources */,
+				FA2CAA651FC3EDF400A2202D /* DMViewController.swift in Sources */,
 				FAB8378B1FA90F97003BA681 /* MyScheduleViewController.swift in Sources */,
 				FA3381F11FA5232900D38264 /* StudyBuddy.xcdatamodeld in Sources */,
+				FA2CAA631FC3EDD000A2202D /* DMListTableViewController.swift in Sources */,
 				FA33821C1FA52C3800D38264 /* RegisterViewController.swift in Sources */,
 				FAB8378F1FA92ECF003BA681 /* SettingsViewController.swift in Sources */,
 				ACF495891FA9759300721D52 /* Event.swift in Sources */,
