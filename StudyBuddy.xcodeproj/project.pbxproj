@@ -35,6 +35,8 @@
 		FA33821A1FA528B800D38264 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3382191FA528B800D38264 /* LoginViewController.swift */; };
 		FA33821C1FA52C3800D38264 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA33821B1FA52C3800D38264 /* RegisterViewController.swift */; };
 		FA3382221FA6F1B700D38264 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3382211FA6F1B700D38264 /* GoogleService-Info.plist */; };
+		FA3FB1461FDC427600380340 /* ClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3FB1451FDC427600380340 /* ClassViewController.swift */; };
+		FA3FB1481FDC59E400380340 /* BlacklistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3FB1471FDC59E400380340 /* BlacklistTableViewCell.swift */; };
 		FAB837891FA90F7B003BA681 /* AddClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB837881FA90F7B003BA681 /* AddClassViewController.swift */; };
 		FAB8378B1FA90F97003BA681 /* MyScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8378A1FA90F97003BA681 /* MyScheduleViewController.swift */; };
 		FAB8378F1FA92ECF003BA681 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8378E1FA92ECF003BA681 /* SettingsViewController.swift */; };
@@ -99,6 +101,8 @@
 		FA3382191FA528B800D38264 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../LoginViewController.swift; sourceTree = "<group>"; };
 		FA33821B1FA52C3800D38264 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		FA3382211FA6F1B700D38264 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FA3FB1451FDC427600380340 /* ClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassViewController.swift; sourceTree = "<group>"; };
+		FA3FB1471FDC59E400380340 /* BlacklistTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlacklistTableViewCell.swift; sourceTree = "<group>"; };
 		FAB837881FA90F7B003BA681 /* AddClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClassViewController.swift; sourceTree = "<group>"; };
 		FAB8378A1FA90F97003BA681 /* MyScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyScheduleViewController.swift; sourceTree = "<group>"; };
 		FAB8378E1FA92ECF003BA681 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 				ACF495831FA9759200721D52 /* InvitedEventTableViewCell.swift */,
 				ACF495841FA9759200721D52 /* User.swift */,
 				FA3382211FA6F1B700D38264 /* GoogleService-Info.plist */,
+				FA3FB1451FDC427600380340 /* ClassViewController.swift */,
 				FA3381E81FA5232900D38264 /* AppDelegate.swift */,
 				FA3382191FA528B800D38264 /* LoginViewController.swift */,
 				FA33821B1FA52C3800D38264 /* RegisterViewController.swift */,
@@ -200,6 +205,7 @@
 				FA2CAA641FC3EDF400A2202D /* DMViewController.swift */,
 				FA2CAA661FC3F7BA00A2202D /* DMTableViewCell.swift */,
 				FAB837901FA92F68003BA681 /* BlacklistViewController.swift */,
+				FA3FB1471FDC59E400380340 /* BlacklistTableViewCell.swift */,
 				A2D81C4D1FA5398B0089B00A /* FriendsViewController.swift */,
 				A2D81C511FA94B880089B00A /* AddFriendViewController.swift */,
 				FAB8378E1FA92ECF003BA681 /* SettingsViewController.swift */,
@@ -540,6 +546,7 @@
 				A2D81C4E1FA5398B0089B00A /* FriendsViewController.swift in Sources */,
 				ACF495881FA9759300721D52 /* EventViewController.swift in Sources */,
 				ACF4958E1FA9759300721D52 /* AddEventViewController.swift in Sources */,
+				FA3FB1461FDC427600380340 /* ClassViewController.swift in Sources */,
 				ACF495901FA9759300721D52 /* EventTableViewCell.swift in Sources */,
 				ACF4958D1FA9759300721D52 /* User.swift in Sources */,
 				ACF4958A1FA9759300721D52 /* EventFriendsTableViewController.swift in Sources */,
@@ -547,6 +554,7 @@
 				ACF4958F1FA9759300721D52 /* EventDataService.swift in Sources */,
 				ACF4958B1FA9759300721D52 /* EventsTableViewController.swift in Sources */,
 				FA3381E91FA5232900D38264 /* AppDelegate.swift in Sources */,
+				FA3FB1481FDC59E400380340 /* BlacklistTableViewCell.swift in Sources */,
 				FA2CAA651FC3EDF400A2202D /* DMViewController.swift in Sources */,
 				FAB8378B1FA90F97003BA681 /* MyScheduleViewController.swift in Sources */,
 				FA3381F11FA5232900D38264 /* StudyBuddy.xcdatamodeld in Sources */,

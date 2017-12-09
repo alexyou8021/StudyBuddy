@@ -75,7 +75,7 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Configure the cell...
         
         let object = self.keys[indexPath.row]
-        var substrings = object.split(separator: "@")
+        var substrings = object.components(separatedBy: "@")
         var ending = ""
         if substrings.count >= 2 {
             ending = substrings[1].replacingOccurrences(of: "dot", with: ".")

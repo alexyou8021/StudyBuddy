@@ -70,7 +70,7 @@ class ClassViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         let object = self.user_keys[indexPath.row]
         
-        var substrings = object.split(separator: "@")
+        var substrings = object.components(separatedBy: "@")
         let ending = substrings[1].replacingOccurrences(of: "dot", with: ".")
         cell.textLabel?.text = substrings[0] + "@" + ending
         

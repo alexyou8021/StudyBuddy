@@ -12,16 +12,6 @@ import FirebaseAuth
 import FirebaseDatabase
 
 class SettingsViewController: UIViewController {
-    @IBAction func autologin_switch(_ sender: Any) {
-        let ref = Database.database().reference()
-        let user = Auth.auth().currentUser
-        let em = user?.email
-        let em2 = em!.replacingOccurrences(of: ".", with: "dot", options: .literal, range: nil)
-        
-        ref.child("users").child(em2).child("autologin").setValue(autologin.isOn)
-    }
-    @IBOutlet weak var autologin: UISwitch!
-
     @IBAction func blacklistSwitch(_ sender: Any) {
         if blacklist.isOn {
             toBlacklist.isHidden = false

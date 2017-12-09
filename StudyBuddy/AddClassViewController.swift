@@ -16,10 +16,30 @@ class AddClassViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var courseNumField: UITextField!
     
     @IBAction func addClass(_ sender: Any) {
+        if fieldStudyField.text == "" {
+            let alert = UIAlertController(title: "", message: "Please enter field of study.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
+        if courseNumField.text == "" {
+            let alert = UIAlertController(title: "", message: "Please enter course number.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+
+            return
+        }
         let user = Auth.auth().currentUser
         let fieldStudy = (fieldStudyField.text)!
         let courseNum = (courseNumField.text)!
-        let className = "\(fieldStudy)\(courseNum)"
+        
+        var className = "\(fieldStudy)\(courseNum)"
+        className = className.replacingOccurrences(of: ".", with: "")
+        className = className.replacingOccurrences(of: "#", with: "")
+        className = className.replacingOccurrences(of: "$", with: "")
+        className = className.replacingOccurrences(of: "[", with: "")
+        className = className.replacingOccurrences(of: "]", with: "")
         
         let em = user?.email
         let users = self.ref.child("users")

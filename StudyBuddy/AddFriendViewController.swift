@@ -16,6 +16,13 @@ class AddFriendViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var friendEmail: UITextField!
     
     @IBAction func addFriendButton(_ sender: Any) {
+        if friendEmail.text == "" {
+            let alert = UIAlertController(title: "", message: "Please enter email.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
         let user = Auth.auth().currentUser
         
         let friendName = friendEmail.text
@@ -26,7 +33,31 @@ class AddFriendViewController: UIViewController, UITextFieldDelegate {
         let friendName2 = friendName!.replacingOccurrences(of: ".", with: "dot", options: .literal, range: nil)
         let friends = users.child(em2).child("friends")
         
-        friends.child(friendName2).setValue(true)
+        users.child("\(friendName2)/blacklisting").observe(.value, with: { snapshot in
+            if snapshot.exists() {
+                if snapshot.value! as! Bool == true {
+                    users.child("\(friendName2)/blacklist/\(em2)").observe(.value, with: { snapshot in
+                        if snapshot.exists() {
+                            let alert = UIAlertController(title: "", message: "Cannot add this user as friend.", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+
+                        }
+                        else {
+                            friends.child(friendName2).setValue(true)
+                        }
+                    })
+                }
+                else {
+                    friends.child(friendName2).setValue(true)
+                }
+            }
+            else {
+                friends.child(friendName2).setValue(true)
+            }
+        })
+        
+        performSegue(withIdentifier: "AddFriend2Schedule", sender: self)
     }
     
     var ref: DatabaseReference!

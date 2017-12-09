@@ -14,6 +14,13 @@ import FirebaseAuth
 class BlacklistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     @IBOutlet weak var personField: UITextField!
     @IBAction func blacklistButton(_ sender: Any) {
+        if personField.text == "" {
+            let alert = UIAlertController(title: "", message: "Please enter an email.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
         let users = ref.child("users")
         let em = Auth.auth().currentUser!.email!.replacingOccurrences(of: ".", with: "dot")
         let user = users.child(em)
@@ -21,16 +28,20 @@ class BlacklistViewController: UIViewController, UITableViewDelegate, UITableVie
         bl.observe(.value, with: { snapshot in
             if snapshot.exists() {
                 self.blacklist = snapshot.value as! [String: Any]
-                self.blacklist[self.personField.text!] = true
+                self.blacklist[self.personField.text!.replacingOccurrences(of: ".", with: "dot")] = true
+                self.blacklist.removeValue(forKey: "")
+                self.personField.text! = ""
                 self.blacklistArray = []
                 for person in self.blacklist.keys {
                     print(person)
                     self.blacklistArray.append(person)
                 }
+                print(bl.key)
+                print("x")
                 bl.setValue(self.blacklist)
             }
             else {
-                self.blacklist = [self.personField.text!: true]
+                self.blacklist = [self.personField.text!.replacingOccurrences(of: ".", with: "dot"): true]
                 self.blacklistArray = []
                 for person in self.blacklist.keys {
                     print(person)
@@ -49,6 +60,7 @@ class BlacklistViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         personField.delegate = self
+        blacklistTableView.allowsMultipleSelection = false
         ref = Database.database().reference()
         let users = ref.child("users")
         let em = Auth.auth().currentUser!.email!.replacingOccurrences(of: ".", with: "dot")
@@ -58,6 +70,7 @@ class BlacklistViewController: UIViewController, UITableViewDelegate, UITableVie
         bl.observe(.value, with: { snapshot in
             if snapshot.exists() {
                 self.blacklist = snapshot.value as! [String: Any]
+                self.blacklist.removeValue(forKey: "")
                 //print(self.blacklist)
                 self.blacklistArray = []
                 for person in self.blacklist.keys {
@@ -87,12 +100,38 @@ class BlacklistViewController: UIViewController, UITableViewDelegate, UITableVie
         return blacklistArray.count
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        (tableView.cellForRow(at: indexPath) as! BlacklistTableViewCell).deleteButton.isHidden = false
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        (tableView.cellForRow(at: indexPath) as! BlacklistTableViewCell).deleteButton.isHidden = true
+    }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "blacklistCell", for: indexPath)
-        cell.textLabel?.text = blacklistArray[indexPath.item]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "blacklistCell", for: indexPath) as! BlacklistTableViewCell
+        cell.emailLabel?.text = blacklistArray[indexPath.item].replacingOccurrences(of: "dot", with: ".")
+        cell.deleteButton.addTarget(self, action: #selector(removeUser), for: .touchUpInside)
+        cell.deleteButton.isHidden = true
         return cell
+    }
+    
+    func removeUser() {
+        let users = ref.child("users")
+        let em = Auth.auth().currentUser!.email!.replacingOccurrences(of: ".", with: "dot")
+        let user = users.child(em)
+        let bl = user.child("blacklist")
+        self.blacklist.removeValue(forKey: blacklistArray[(blacklistTableView.indexPathForSelectedRow?.item)!])
+        self.blacklistArray = []
+        for person in self.blacklist.keys {
+            print(person)
+            self.blacklistArray.append(person)
+        }
+        bl.setValue(self.blacklist)
+    
+        self.blacklistTableView.reloadData()
     }
     
     // Below code taken from TestKeyboardDismiss

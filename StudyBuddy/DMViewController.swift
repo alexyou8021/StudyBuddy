@@ -19,6 +19,9 @@ class DMViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var messageTable: UITableView!
     @IBOutlet weak var messageInput: UITextField!
     @IBAction func sendBtn(_ sender: Any) {
+        if messageInput.text == "" {
+            return
+        }
         let user = Auth.auth().currentUser
         let em = user?.email
         let users = self.ref.child("users")
@@ -31,11 +34,17 @@ class DMViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
                 self.messageCount = 0
             }
         })
-
+        var temp_message = messageInput.text!
+        temp_message = temp_message.replacingOccurrences(of: ".", with: "")
+        temp_message = temp_message.replacingOccurrences(of: "#", with: "")
+        temp_message = temp_message.replacingOccurrences(of: "$", with: "")
+        temp_message = temp_message.replacingOccurrences(of: "[", with: "")
+        temp_message = temp_message.replacingOccurrences(of: "]", with: "")
+        
         let convo = users.child(em2).child("messages").child(friendEmail!)
-        convo.child("\(messageCount)").child(messageInput.text!).setValue(true)
+        convo.child("\(messageCount)").child(temp_message).setValue(true)
         let convo2 = users.child(friendEmail!).child("messages").child(em2)
-        convo2.child("\(messageCount)").child(messageInput.text!).setValue(false)
+        convo2.child("\(messageCount)").child(temp_message).setValue(false)
         messageInput.text = ""
         self.ref?.child("users").child(em2).child("messages").child(friendEmail!).observe(.value, with: { snapshot1 in
             if snapshot1.exists() {
@@ -67,6 +76,7 @@ class DMViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Direct Message"
         messageTable.dataSource = self
         messageTable.delegate = self
         
@@ -128,7 +138,7 @@ class DMViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         let cell = tableView.dequeueReusableCell(withIdentifier: "message", for: indexPath) as! DMTableViewCell
         // Configure the cell...
         let fem = messages[indexPath.item]["author"]
-        var substrings = fem?.split(separator: "@")
+        var substrings = fem?.components(separatedBy: "@")
         let ending = substrings![1].replacingOccurrences(of: "dot", with: ".")
         cell.nameLabel.text = substrings![0] + "@" + ending
         cell.messageLabel.text = messages[indexPath.item]["message"]

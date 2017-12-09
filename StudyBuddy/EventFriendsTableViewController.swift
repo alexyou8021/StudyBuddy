@@ -69,7 +69,7 @@ class EventFriendsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventFriendCell", for: indexPath)
         let friend = friendIds[indexPath.row]
-        var substrings = friend.split(separator: "@")
+        var substrings = friend.components(separatedBy: "@")
         let ending = substrings[1].replacingOccurrences(of: "dot", with: ".")
         cell.textLabel?.text = substrings[0] + "@" + ending
         return cell
