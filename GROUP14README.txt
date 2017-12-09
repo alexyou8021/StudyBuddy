@@ -1,20 +1,24 @@
 Implementation Contributions:
 Alex You: 33%
-Login Screen
-Settings
 Blacklist
+Direct Messages
+Study Map
 Mitchell Minkoff: 33%
-My Schedule
-Friends
-Login Screen
+Schedule sharing
+Login/Auth
 Vikram Idury: 33%
-Event Scheduling
+Events
+Event Invites
+UI
 
 Grading Level:
 Same for all members
 
 Differences:
-Auto-login was left unrendered because we are still unsure about how we would toggle the functionality.
+The study map is implemented and should work as intended for event creation.
+Blacklist is implemented as well as the autologin feature. The UI has changed
+and includes a much cleaner and well fitted color scheme and interface. Minor
+bugs were fixed from the beta version.
 
 Instructions:
 Run "pod install"
