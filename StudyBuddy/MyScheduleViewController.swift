@@ -66,14 +66,13 @@ class MyScheduleViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.numClasses
+        return self.keys.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath)
         
         // Configure the cell...
-        
         let object = self.keys[indexPath.row]
         
         cell.textLabel?.text = object
@@ -94,6 +93,7 @@ class MyScheduleViewController: UIViewController, UITableViewDelegate, UITableVi
             if let indexPath = self.scheduleTableView.indexPathForSelectedRow {
                 let classKey = keys[indexPath.row]
                 seg.classId = classKey
+                seg.scheduleViewVC = self
             }
         } else {
             

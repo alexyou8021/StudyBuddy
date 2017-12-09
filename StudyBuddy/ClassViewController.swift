@@ -22,6 +22,7 @@ class ClassViewController: UIViewController,UITableViewDelegate, UITableViewData
     var classId: String!
     var user_map:[String:Bool] = [:]
     var user_keys:[String] = []
+    var scheduleViewVC: MyScheduleViewController!
     var numUsers = 0
     var ref: DatabaseReference!
     
@@ -56,6 +57,15 @@ class ClassViewController: UIViewController,UITableViewDelegate, UITableViewData
     }
     
     @IBAction func deleteClass(_ sender: Any) {
+        ref = Database.database().reference()
+        let user = Auth.auth().currentUser
+        let em = user?.email
+        let em2 = em!.replacingOccurrences(of: ".", with: "dot", options: .literal, range: nil)
+        self.ref.child("users").child(em2).child("classes").child(classId).removeValue()
+        self.ref.child("classes").child(classId).child(em2).removeValue()
+        self.deleteButton.isEnabled = false
+        self.deleteButton.setTitle("Class Deleted", for: .normal)
+        self.scheduleViewVC.scheduleTableView.reloadData()
     }
     
     

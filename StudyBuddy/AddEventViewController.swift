@@ -54,12 +54,16 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, MKMapViewDe
         
         let time = formatter.string(from: timestamp)
         var location = "location"
-        if (name.characters.count > 0 && time.characters.count > 0 && location.characters.count > 0){
-            saveEvent(name: name, time: time, location: location, invites: selectedFriends, latitude: "\(mapView.centerCoordinate.latitude)", longitude: "\(mapView.centerCoordinate.longitude)")
-            statusLabel.text = "Event added successfully"
-        } else {
-           statusLabel.text = "Must fill out all fields"
+        if name == "" {
+            let alert = UIAlertController(title: "", message: "Please enter an event name.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            return
         }
+
+        saveEvent(name: name, time: time, location: location, invites: selectedFriends, latitude: "\(mapView.centerCoordinate.latitude)", longitude: "\(mapView.centerCoordinate.longitude)")
+        
     }
     
     func saveEvent(name: String, time: String, location: String, invites: Set<String>, latitude: String, longitude: String){
@@ -97,9 +101,12 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, MKMapViewDe
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let seg = segue.destination as! EventFriendsTableViewController
-        // Pass the selected object to the new view controller.
-        seg.addEventVC = self
+        if segue.identifier == "addFriendsSegue" {
+            let seg = segue.destination as! EventFriendsTableViewController
+            // Pass the selected object to the new view controller.
+            seg.addEventVC = self
+        }
+        
     }
     
     // Below code taken from TestKeyboardDismiss
