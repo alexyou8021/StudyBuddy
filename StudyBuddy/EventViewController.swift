@@ -17,11 +17,11 @@ class EventViewController: UIViewController {
     var eventId: String!
     @IBOutlet weak var eventButton: UIButton!
     var ref: DatabaseReference!
+    var deletable: Bool!
     var eventsTableVC: EventsTableViewController!
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +34,13 @@ class EventViewController: UIViewController {
                 let location = mapping["location"]
                 self.nameLabel.text = name
                 self.timeLabel.text = time
-                self.locationLabel.text = location
                 self.reloadInputViews()
             }
         })
+        if !deletable {
+            print("test")
+            self.eventButton.isHidden = true
+        }
         // Do any additional setup after loading the view.
     }
 

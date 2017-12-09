@@ -24,7 +24,9 @@ class AddClassViewController: UIViewController, UITextFieldDelegate {
         let em = user?.email
         let users = self.ref.child("users")
         let em2 = em!.replacingOccurrences(of: ".", with: "dot", options: .literal, range: nil)
+        let classes = self.ref.child("classes")
         
+        classes.child(className).child(em2).setValue(true)
         users.child(em2).child("classes").child(className).setValue(true)
     }
     

@@ -75,8 +75,12 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Configure the cell...
         
         let object = self.keys[indexPath.row]
-        
-        cell.textLabel?.text = object
+        var substrings = object.split(separator: "@")
+        var ending = ""
+        if substrings.count >= 2 {
+            ending = substrings[1].replacingOccurrences(of: "dot", with: ".")
+        }
+        cell.textLabel?.text = substrings[0] + "@" + ending
         
         return cell
     }
@@ -133,10 +137,10 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if let destinationVC = segue.destination as? FriendScheduleTableViewController {
+        if let destinationVC = segue.destination as? DMViewController {
             let indexPath = friendsTable.indexPathForSelectedRow
-            let right_friend = keys[(indexPath?.row)!]
-            destinationVC.friendEmail = right_friend
+            let friend = keys[(indexPath?.row)!]
+            destinationVC.friendEmail = friend.replacingOccurrences(of: ".", with: "dot")
         }
         
     }

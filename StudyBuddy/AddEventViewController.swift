@@ -12,11 +12,11 @@ import FirebaseStorage
 import FirebaseDatabase
 
 class AddEventViewController: UIViewController, UITextFieldDelegate {
+    @IBOutlet weak var timeField: UIDatePicker!
     @IBOutlet weak var statusLabel: UILabel!
     
     @IBOutlet weak var nameField: UITextField!
-    @IBOutlet weak var timeField: UITextField!
-    @IBOutlet weak var locationField: UITextField!
+
     var selectedFriends: Set<String>!
     
     var ref: DatabaseReference!
@@ -25,8 +25,6 @@ class AddEventViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         ref = Database.database().reference()
         nameField.delegate = self
-        timeField.delegate = self
-        locationField.delegate = self
         selectedFriends = Set<String>()
         // Do any additional setup after loading the view.
     }
@@ -38,8 +36,13 @@ class AddEventViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func addEvent(_ sender: UIButton) {
         let name = nameField.text!
-        let time = timeField.text!
-        let location = locationField.text!
+        let timestamp = timeField.date
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        
+        let time = formatter.string(from: timestamp)
+        var location = "location"
         if (name.characters.count > 0 && time.characters.count > 0 && location.characters.count > 0){
             saveEvent(name: name, time: time, location: location, invites: selectedFriends)
             statusLabel.text = "Event added successfully"

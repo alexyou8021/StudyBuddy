@@ -127,7 +127,10 @@ class DMViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "message", for: indexPath) as! DMTableViewCell
         // Configure the cell...
-        cell.nameLabel.text = messages[indexPath.item]["author"]
+        let fem = messages[indexPath.item]["author"]
+        var substrings = fem?.split(separator: "@")
+        let ending = substrings![1].replacingOccurrences(of: "dot", with: ".")
+        cell.nameLabel.text = substrings![0] + "@" + ending
         cell.messageLabel.text = messages[indexPath.item]["message"]
         return cell
     }

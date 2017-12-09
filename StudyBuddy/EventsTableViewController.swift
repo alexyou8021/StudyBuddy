@@ -140,7 +140,17 @@ class EventsTableViewController: UIViewController,UITableViewDelegate, UITableVi
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 seg.eventId = acceptedEventIDs[indexPath.row]
                 seg.eventsTableVC = self
+                seg.deletable = true
             }
+        } else if segue.identifier == "viewInvitedEventSegue" {
+            let seg = segue.destination as! EventViewController
+            // Pass the selected object to the new view controller.
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                seg.eventId = invitedEventIDs[indexPath.row]
+                seg.eventsTableVC = self
+                seg.deletable = false
+            }
+            
         } else if segue.identifier == "addEventSegue" {
             
         }
