@@ -10,12 +10,14 @@ import UIKit
 import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
+import MapKit
 
-class AddEventViewController: UIViewController, UITextFieldDelegate {
+class AddEventViewController: UIViewController, UITextFieldDelegate, MKMapViewDelegate {
     @IBOutlet weak var timeField: UIDatePicker!
     @IBOutlet weak var statusLabel: UILabel!
     
     @IBOutlet weak var nameField: UITextField!
+    @IBOutlet var mapView: MKMapView!
 
     var selectedFriends: Set<String>!
     
@@ -23,6 +25,15 @@ class AddEventViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.delegate = self
+        let initialLocation = CLLocation(latitude: 30.2672, longitude: -97.7431)
+        let regionRadius = 10000
+        
+        //mapView.setCenter(CLLocationCoordinate2DMake(30.2672, -97.7431), animated: false)
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(initialLocation.coordinate,
+                                                                  CLLocationDistance(regionRadius), CLLocationDistance(regionRadius))
+        mapView.setRegion(coordinateRegion, animated: true)
+        mapView.addAnnotation(Event(eid: "111", name: "Funs", time: "Time", location: "initialLocation", latitude:"30.2672", longitude:"-97.7431"))
         ref = Database.database().reference()
         nameField.delegate = self
         selectedFriends = Set<String>()
@@ -44,14 +55,14 @@ class AddEventViewController: UIViewController, UITextFieldDelegate {
         let time = formatter.string(from: timestamp)
         var location = "location"
         if (name.characters.count > 0 && time.characters.count > 0 && location.characters.count > 0){
-            saveEvent(name: name, time: time, location: location, invites: selectedFriends)
+            saveEvent(name: name, time: time, location: location, invites: selectedFriends, latitude: "\(mapView.centerCoordinate.latitude)", longitude: "\(mapView.centerCoordinate.longitude)")
             statusLabel.text = "Event added successfully"
         } else {
            statusLabel.text = "Must fill out all fields"
         }
     }
     
-    func saveEvent(name: String, time: String, location: String, invites: Set<String>){
+    func saveEvent(name: String, time: String, location: String, invites: Set<String>, latitude: String, longitude: String){
         let user = Auth.auth().currentUser
         let users = self.ref.child("users")
         let em = user?.email
@@ -63,7 +74,9 @@ class AddEventViewController: UIViewController, UITextFieldDelegate {
             "host": em2,
             "name": name,
             "time": time,
-            "location": location
+            "location": location,
+            "latitude": latitude,
+            "longitude": longitude
         ])
         let eventId = newEvent.key
         users.child(em2).child("accepted_events").child(eventId).setValue(true)
@@ -73,6 +86,12 @@ class AddEventViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        mapView.removeAnnotations(mapView.annotations)
+        let center = mapView.centerCoordinate
+        print(center)
+        mapView.addAnnotation(Event(eid: "111", name: "Funs", time: "Time", location: "initialLocation", latitude:"\(center.latitude)", longitude:"\(center.longitude)"))
+    }
     
     // MARK: - Navigation
 

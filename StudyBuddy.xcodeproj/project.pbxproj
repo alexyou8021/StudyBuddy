@@ -37,6 +37,7 @@
 		FA3382221FA6F1B700D38264 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3382211FA6F1B700D38264 /* GoogleService-Info.plist */; };
 		FA3FB1461FDC427600380340 /* ClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3FB1451FDC427600380340 /* ClassViewController.swift */; };
 		FA3FB1481FDC59E400380340 /* BlacklistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3FB1471FDC59E400380340 /* BlacklistTableViewCell.swift */; };
+		FA3FB14A1FDC812000380340 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3FB1491FDC812000380340 /* MapViewController.swift */; };
 		FAB837891FA90F7B003BA681 /* AddClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB837881FA90F7B003BA681 /* AddClassViewController.swift */; };
 		FAB8378B1FA90F97003BA681 /* MyScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8378A1FA90F97003BA681 /* MyScheduleViewController.swift */; };
 		FAB8378F1FA92ECF003BA681 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8378E1FA92ECF003BA681 /* SettingsViewController.swift */; };
@@ -103,6 +104,7 @@
 		FA3382211FA6F1B700D38264 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA3FB1451FDC427600380340 /* ClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassViewController.swift; sourceTree = "<group>"; };
 		FA3FB1471FDC59E400380340 /* BlacklistTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlacklistTableViewCell.swift; sourceTree = "<group>"; };
+		FA3FB1491FDC812000380340 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FAB837881FA90F7B003BA681 /* AddClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClassViewController.swift; sourceTree = "<group>"; };
 		FAB8378A1FA90F97003BA681 /* MyScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyScheduleViewController.swift; sourceTree = "<group>"; };
 		FAB8378E1FA92ECF003BA681 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			children = (
 				FA3381EC1FA5232900D38264 /* Main.storyboard */,
 				ACF495851FA9759300721D52 /* AddEventViewController.swift */,
+				FA3FB1491FDC812000380340 /* MapViewController.swift */,
 				ACF495801FA9759200721D52 /* Event.swift */,
 				ACF495861FA9759300721D52 /* EventDataService.swift */,
 				ACF495811FA9759200721D52 /* EventFriendsTableViewController.swift */,
@@ -556,6 +559,7 @@
 				FA3381E91FA5232900D38264 /* AppDelegate.swift in Sources */,
 				FA3FB1481FDC59E400380340 /* BlacklistTableViewCell.swift in Sources */,
 				FA2CAA651FC3EDF400A2202D /* DMViewController.swift in Sources */,
+				FA3FB14A1FDC812000380340 /* MapViewController.swift in Sources */,
 				FAB8378B1FA90F97003BA681 /* MyScheduleViewController.swift in Sources */,
 				FA3381F11FA5232900D38264 /* StudyBuddy.xcdatamodeld in Sources */,
 				FA2CAA631FC3EDD000A2202D /* DMListTableViewController.swift in Sources */,

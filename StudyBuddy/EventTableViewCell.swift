@@ -10,6 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 import FirebaseStorage
+import MapKit
 
 class EventTableViewCell: UITableViewCell {
 
@@ -32,7 +33,8 @@ class EventTableViewCell: UITableViewCell {
                 let name = mapping["name"]
                 let time = mapping["time"]
                 let location = mapping["location"]
-                self.event = Event(eid: self.eventId, name: name!, time: time!, location: location!)
+                //let location = CLLocation(latitude: 30.2672, longitude: -97.7431)
+                self.event = Event(eid: self.eventId, name: name!, time: time!, location: location!, latitude:"-97.7431", longitude:"30.2672")
                 self.eventLabel.text = self.event.name
             }
         })

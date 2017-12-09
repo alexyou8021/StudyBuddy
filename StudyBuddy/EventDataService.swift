@@ -7,17 +7,18 @@
 //
 
 import Foundation
+import MapKit
 
 class EventDataService {
     
     static var acceptedEvents: [Event] = [
-        Event(eid: "event1", name: "Study for Psych", time: "Tuesday 12:30pm", location: "FAC"),
-        Event(eid: "event2", name: "Prepare for Interview", time: "Monday 9:15am", location: "Alex's apartment"),
-        Event(eid: "event3", name: "Finish iOS Alpha Release", time: "Friday 1-2pm", location: "GDC")
+        Event(eid: "event1", name: "Study for Psych", time: "Tuesday 12:30pm", location: "FAC", latitude: "", longitude: ""),
+        Event(eid: "event2", name: "Prepare for Interview", time: "Monday 9:15am", location: "Alex's apartment", latitude: "", longitude: ""),
+        Event(eid: "event3", name: "Finish iOS Alpha Release", time: "Friday 1-2pm", location: "GDC", latitude: "", longitude: "")
     ]
     static var invitedEvents: [Event] = [
-        Event(eid: "event1", name: "Work on Algo assignment", time: "Monday 5:00pm", location: "FAC"),
-        Event(eid: "event2", name: "Go through basketball drills", time: "Thursday 9:00pm", location: "Gregory Gym"),
+        Event(eid: "event1", name: "Work on Algo assignment", time: "Monday 5:00pm", location: "FAC", latitude: "", longitude: ""),
+        Event(eid: "event2", name: "Go through basketball drills", time: "Thursday 9:00pm", location: "Gregory Gym", latitude: "", longitude: ""),
     ]
     static var friends: [User] = [
         User(uid: "friend1", firstName: "First1", lastName: "Last1", hosted: [], invited: [], accepted: []),
@@ -42,7 +43,7 @@ class EventDataService {
     static func saveEvent(name: String, time: String, location: String, invites: Set<String>) {
         print(invites)
         let id = arc4random_uniform(100000)
-        var event = Event(eid: "event\(id)", name: name, time: time, location: location)
+        var event = Event(eid: "event\(id)", name: name, time: time, location: location, latitude: "", longitude: "")
         acceptedEvents.append(event)
     }
     

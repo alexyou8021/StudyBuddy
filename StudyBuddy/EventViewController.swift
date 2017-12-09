@@ -10,6 +10,7 @@ import UIKit
 import FirebaseStorage
 import FirebaseDatabase
 import FirebaseAuth
+import MapKit
 
 class EventViewController: UIViewController {
     
@@ -22,6 +23,7 @@ class EventViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +34,18 @@ class EventViewController: UIViewController {
                 let name = mapping["name"]
                 let time = mapping["time"]
                 let location = mapping["location"]
+                let latitude = mapping["latitude"]
+                let longitude = mapping["longitude"]
+                var lat = round(Double(latitude!)!*10000)/10000
+                var long =  round(Double(longitude!)!*10000)/10000
                 self.nameLabel.text = name
                 self.timeLabel.text = time
+                let initialLocation = CLLocation(latitude: lat, longitude: long)
+                let regionRadius = 5000
+                let coordinateRegion = MKCoordinateRegionMakeWithDistance(initialLocation.coordinate,
+                                                                          CLLocationDistance(regionRadius), CLLocationDistance(regionRadius))
+                self.mapView.setRegion(coordinateRegion, animated: true)
+                self.mapView.addAnnotation(Event(eid: "111", name: name!, time: "Time", location: "initialLocation", latitude: latitude!, longitude: longitude!))
                 self.reloadInputViews()
             }
         })
