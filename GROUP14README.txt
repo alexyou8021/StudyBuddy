@@ -23,3 +23,4 @@ bugs were fixed from the beta version.
 Instructions:
 Run "pod install"
 Use Cocoa Pods 1.3.1
+Run "open StudyBuddy.xcworkspace"
